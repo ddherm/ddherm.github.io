@@ -18,7 +18,7 @@ python3 -m http.server 4173 --directory dist
 
 ## 内容维护
 
-- `dist/content.js`：维护论文的结构化内容。修改论文状态时，同时核对作者身份、年份和链接。
+- `dist/content.js`：维护论文的问题、算法、实验效果、个人贡献和评测条件，以及期刊 JCR／JIF、指标年度与官方来源。修改论文状态时，同时核对作者身份、年份和链接。
 - `dist/app.js`：维护项目详情的中英文文案与交互逻辑。
 - `scripts/prepare.mjs`：同步生成 BibTeX 下载文件和无 JavaScript 时的完整论文列表。修改论文数据后运行 `node scripts/prepare.mjs`；GitHub Actions 也会自动执行。
 - `dist/index.html`：首页结构和项目介绍的页面文案；调整首页文字时检查对应的中英文版本。
@@ -49,3 +49,5 @@ GitHub Pages 托管本作品集的静态页面；Flash Pocket 等应用通过作
 - **论文与研究**：强化学习、图与时空学习、动态路由、可信通信及 LLM 应用；论文状态以页面标注为准。
 
 项目源码与文档的版权和许可证以各项目原仓库为准。
+
+期刊指标使用 2025 JIF（2026 年发布），与论文发表年份和投稿状态分别记录。TCOM 与 TVT 依据 [IEEE 2026 年 9 月官方期刊表](https://open.ieee.org/wp-content/uploads/IEEE-Title-List-September-2026.pdf)，Signals 依据 [MDPI 官方期刊页](https://www.mdpi.com/journal/signals)和 [Imprint](https://www.mdpi.com/journal/signals/imprint)。BibTeX 保留纯期刊名称。

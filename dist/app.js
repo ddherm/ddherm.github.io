@@ -58,15 +58,37 @@
     }
   };
 
+  function venueHtml(p) {
+    const name=p.venue.replace(/\s*· (submitted|accepted)$/,'');
+    const m=p.journalMetrics;
+    if(!m)return escape(name);
+    const rating=t('（JCR '+m.quartile+'，IF = '+m.impactFactor+'）',' (JCR '+m.quartile+', IF = '+m.impactFactor+')');
+    return '<strong>'+escape(name)+'</strong><span class="venue-rating">'+escape(rating)+'</span><a class="metric-year" href="'+escape(m.sourceUrl)+'" target="_blank" rel="noopener noreferrer" aria-label="'+escape(t('查看期刊指标官方来源','View official journal metrics'))+'">'+m.year+' JIF</a>';
+  }
+  function statusLabel(p) {
+    return p.id==='P02'?t('预印本','Preprint'):({published:t('已发表','Published'),accepted:t('已录用','Accepted'),submitted:t('在投','Submitted')})[p.status];
+  }
+  function researchBlocks(p) {
+    const sections=[['研究问题','Problem','problem'],['算法与实现','Method','method'],['实验效果','Results','results'],['本人工作','My contribution','contribution'],['实验条件','Evaluation setting','conditions']];
+    return sections.map(([zh,en,key])=>{
+      const value=p[key+(lang==='zh'?'Zh':'En')];
+      return value?'<section class="dialog-content-section research-detail"><h3>'+t(zh,en)+'</h3><p>'+escape(value)+'</p></section>':'';
+    }).join('');
+  }
+  function journalSource(p) {
+    const m=p.journalMetrics;if(!m)return '';
+    return '<p class="journal-source">'+m.year+' JIF · '+t(m.releaseYear+' 年发布','released in '+m.releaseYear)+' · '+escape(m.category)+'<br>'+external(m.sourceUrl,t('期刊指标来源','Journal metric source'))+(m.quartileSourceUrl?' · '+external(m.quartileSourceUrl,t('JCR 分区来源','JCR quartile source')):'')+'</p>';
+  }
+
   function renderPapers() {
     const query = $('#paper-search').value.trim().toLowerCase();
-    const filtered = papers.filter(p => (paperFilter === 'all' || p.status === paperFilter) && [p.title,p.authors,p.venue,p.summaryZh,p.summaryEn].join(' ').toLowerCase().includes(query));
+    const filtered = papers.filter(p => (paperFilter === 'all' || p.status === paperFilter) && [p.title,p.authors,p.venue,p.summaryZh,p.summaryEn,p.problemZh,p.problemEn,p.methodZh,p.methodEn,p.resultsZh,p.resultsEn].join(' ').toLowerCase().includes(query));
     const order = {P01:0,P05:1,P06:2,P07:3,P08:4,P02:5,P04:6,P03:7};
     filtered.sort((a,b) => order[a.id] - order[b.id]);
     $('#paper-list').innerHTML = filtered.length ? filtered.map(p => {
-      const status = p.id === 'P02' ? t('预印本','Preprint') : ({published:t('已发表','Published'),accepted:t('已录用','Accepted'),submitted:t('在投','Submitted')})[p.status];
+      const status = statusLabel(p);
       const year = p.id === 'P07' ? t('目标 2027','Target 2027') : (p.year || t('进行中','In progress'));
-      return `<article class="paper-row"><div class="paper-date"><span class="paper-year">${escape(year)}</span><span class="paper-status ${escape(p.status)}">${status}</span></div><div class="paper-main"><div class="paper-venue">${escape(p.venue)}</div><h3 class="paper-title"><button data-paper="${escape(p.id)}">${escape(p.title)}</button></h3><p class="paper-authors">${escape(p.authors).replace(/Kai Fang/g,'<strong>Kai Fang</strong>')}</p><p class="paper-description">${escape(lang === 'zh' ? p.summaryZh : p.summaryEn)}</p><div class="paper-actions"><span class="paper-role">${escape(lang === 'zh' ? p.roleZh : p.roleEn)}</span>${p.url ? external(p.url,t('原文','Paper')) : ''}<button data-paper="${escape(p.id)}">${t('研究介绍','Details')}</button>${p.bibtex ? `<button data-cite="${escape(p.id)}">BibTeX</button>` : ''}</div></div><button class="paper-open" data-paper="${escape(p.id)}" aria-label="${escape(t('查看论文介绍：','View publication: ') + p.title)}">↗</button></article>`;
+      return `<article class="paper-row"><div class="paper-date"><span class="paper-year">${escape(year)}</span><span class="paper-status ${escape(p.status)}">${status}</span></div><div class="paper-main"><div class="paper-venue">${venueHtml(p)}</div><h3 class="paper-title"><button data-paper="${escape(p.id)}">${escape(p.title)}</button></h3><p class="paper-authors">${escape(p.authors).replace(/Kai Fang/g,'<strong>Kai Fang</strong>')}</p><p class="paper-description">${escape(lang === 'zh' ? p.summaryZh : p.summaryEn)}</p>${p.shortResultZh ? `<p class="paper-highlight"><span>${t('效果','Result')}</span>${escape(lang === 'zh' ? p.shortResultZh : p.shortResultEn)}</p>` : ''}<div class="paper-actions"><span class="paper-role">${escape(lang === 'zh' ? p.roleZh : p.roleEn)}</span>${p.url ? external(p.url,t('原文','Paper')) : ''}<button data-paper="${escape(p.id)}">${t('研究介绍','Details')}</button>${p.bibtex ? `<button data-cite="${escape(p.id)}">BibTeX</button>` : ''}</div></div><button class="paper-open" data-paper="${escape(p.id)}" aria-label="${escape(t('查看论文介绍：','View publication: ') + p.title)}">↗</button></article>`;
     }).join('') : `<p class="empty-state">${t('没有找到匹配的论文，试试其他关键词。','No matching papers. Try another keyword.')}</p>`;
   }
 
@@ -76,7 +98,7 @@
       $('#dialog-content').innerHTML = `<div class="dialog-eyebrow">${p.label}</div><h2 id="dialog-title" class="dialog-title">${p.title}</h2><p class="dialog-summary">${escape(lang === 'zh' ? p.summaryZh : p.summaryEn)}</p><div class="tags">${p.tags.map(s=>`<span>${escape(s)}</span>`).join('')}</div>${p.image ? `<img class="dialog-image" src="${p.image}" alt="${escape(p.title)} ${t('项目界面','project interface')}">` : ''}<div class="dialog-content-section"><h3>${escape(lang === 'zh' ? p.roleZh : p.roleEn)}</h3><ul>${(lang === 'zh' ? p.itemsZh : p.itemsEn).map(s=>`<li>${escape(s)}</li>`).join('')}</ul></div><p class="dialog-notice">${escape(lang === 'zh' ? p.noteZh : p.noteEn)}</p>${p.url ? `<div class="dialog-links">${external(p.url,lang === 'zh' ? p.linkZh : p.linkEn,'button primary')}</div>` : ''}`;
     } else {
       const p = papers.find(p=>p.id === id); if (!p) return;
-      $('#dialog-content').innerHTML = `<div class="dialog-eyebrow">${escape(p.venue)}</div><h2 id="dialog-title" class="dialog-title">${escape(p.title)}</h2><p class="dialog-authors">${escape(p.authors)}</p><p class="dialog-summary">${escape(lang === 'zh' ? p.summaryZh : p.summaryEn)}</p><div class="dialog-content-section"><h3>${escape(lang === 'zh' ? p.roleZh : p.roleEn)}</h3><p>${p.status === 'submitted' ? t('当前记录为在投，尚无录用或正式发表记录。','Currently submitted; acceptance or formal publication has not been recorded.') : p.status === 'accepted' ? t('EIECC 2026 已录用，正式卷期与 DOI 待补充。论文署名为第 4 作者、通讯作者；本人确认独立完成该项研究。','Accepted at EIECC 2026; publication details and DOI are pending. Listed as fourth and corresponding author; the author reports independently completing the research.') : p.id === 'P02' ? t('此处链接公开 arXiv 版本。本人承担数据工程，并配合团队开展模型微调与评测。','Links to the public arXiv version. Individual work covered data engineering and participation in team fine-tuning and evaluation.') : t('出版信息与作者顺序见原文。','See the original paper for publication details and author order.')}</p></div>${p.bibtex ? `<pre class="dialog-citation">${escape(p.bibtex)}</pre>` : ''}<div class="dialog-links">${p.url ? external(p.url,t('打开论文原文','Open paper'),'button primary') : ''}${p.bibtex ? `<button class="button" data-copy-cite="${p.id}">${t('复制 BibTeX','Copy BibTeX')} ↗</button>` : ''}</div>`;
+      $('#dialog-content').innerHTML = `<div class="dialog-eyebrow">${venueHtml(p)}</div><h2 id="dialog-title" class="dialog-title">${escape(p.title)}</h2><p class="dialog-authors">${escape(p.authors)}</p><div class="dialog-paper-meta"><span class="paper-status ${escape(p.status)}">${statusLabel(p)}</span><span>${escape(lang === 'zh' ? p.roleZh : p.roleEn)}</span></div>${journalSource(p)}<p class="dialog-summary">${escape(lang === 'zh' ? p.summaryZh : p.summaryEn)}</p>${researchBlocks(p)}${p.bibtex ? `<details class="citation-details"><summary>${t('文献引用 · BibTeX','Citation · BibTeX')}</summary><pre class="dialog-citation">${escape(p.bibtex)}</pre></details>` : ''}<div class="dialog-links">${p.url ? external(p.url,t('打开论文原文','Open paper'),'button primary') : ''}${p.bibtex ? `<button class="button" data-copy-cite="${p.id}">${t('复制 BibTeX','Copy BibTeX')}</button>` : ''}</div>`;
     }
   }
   function showDialog(type,id) {
@@ -120,7 +142,7 @@
   document.addEventListener('click',event=>{
     const project=event.target.closest('[data-project]'); if(project)showDialog('project',project.dataset.project);
     const paper=event.target.closest('[data-paper]'); if(paper)showDialog('paper',paper.dataset.paper);
-    const cite=event.target.closest('[data-cite]'); if(cite)showDialog('paper',cite.dataset.cite);
+    const cite=event.target.closest('[data-cite]'); if(cite){showDialog('paper',cite.dataset.cite);const citation=$('.citation-details');if(citation){citation.open=true;citation.scrollIntoView({block:'start'});}}
     const copyCite=event.target.closest('[data-copy-cite]'); if(copyCite)copy(papers.find(p=>p.id===copyCite.dataset.copyCite).bibtex,t('BibTeX 已复制','BibTeX copied'));
   });
   $('#close-dialog').addEventListener('click',()=>$('#detail-dialog').close());

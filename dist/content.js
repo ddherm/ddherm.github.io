@@ -1,4 +1,4 @@
-/* Public portfolio data. Source and publication-status notes: ../notes/content-audit.md. */
+/* Public research descriptions and verified journal metrics. JIF year: 2025; released in 2026. */
 window.PORTFOLIO_CONTENT = {
   "papers": [
     {
@@ -13,7 +13,28 @@ window.PORTFOLIO_CONTENT = {
       "summaryZh": "面向 RIS 辅助边缘计算中的安全卸载与能耗权衡，采用多智能体 TD3 联合优化任务分割、通信资源和 RIS 相移。",
       "summaryEn": "A multi-agent TD3 framework jointly optimizes task partitioning, communication resources, and RIS phases to balance secure offloading and energy use in mobile edge computing.",
       "url": "https://doi.org/10.1109/TCOMM.2024.3476139",
-      "bibtex": "@article{fang2025security,\n  author = {Fang, Kai and Ouyang, Yuxuan and Zheng, Beixiong and Huang, Lei and Wang, Gang and Chen, Zhen},\n  title = {Security Enhancement for {RIS}-Aided {MEC} Systems With Deep Reinforcement Learning},\n  journal = {IEEE Transactions on Communications},\n  volume = {73},\n  number = {4},\n  year = {2025},\n  doi = {10.1109/TCOMM.2024.3476139}\n}"
+      "bibtex": "@article{fang2025security,\n  author = {Fang, Kai and Ouyang, Yuxuan and Zheng, Beixiong and Huang, Lei and Wang, Gang and Chen, Zhen},\n  title = {Security Enhancement for {RIS}-Aided {MEC} Systems With Deep Reinforcement Learning},\n  journal = {IEEE Transactions on Communications},\n  volume = {73},\n  number = {4},\n  year = {2025},\n  doi = {10.1109/TCOMM.2024.3476139}\n}",
+      "problemZh": "RIS 辅助移动边缘计算中，安全卸载容量与系统能耗相互制约，任务完成还受到时延、算力和发射功率约束。研究目标是联合安排任务执行与通信资源，提高单位能耗对应的安全卸载能力。",
+      "problemEn": "Secure offloading capacity and energy consumption are coupled in RIS-aided mobile edge computing. The study jointly allocates execution and communication resources under latency, computing and power constraints.",
+      "methodZh": "构建多用户 MEC 系统模型，将任务分割、阶段时长、用户发射功率、接收波束和 RIS 相移纳入联合优化。采用多智能体 TD3，以双 Q 网络、目标策略平滑和延迟策略更新学习连续动作，求解这一非凸资源分配问题。",
+      "methodEn": "The system jointly optimizes task partitioning, stage durations, transmit powers, receive beamforming and RIS phases. Multi-agent TD3 handles continuous actions using twin critics, target-policy smoothing and delayed policy updates.",
+      "resultsZh": "在论文仿真设置下，相较 MADDPG、单智能体 DDPG 等基线，所提方法在训练表现、安全卸载容量和能耗方面取得更好的结果。",
+      "resultsEn": "The reported simulations show better training behavior, secure offloading capacity and energy performance than MADDPG and single-agent DDPG baselines.",
+      "contributionZh": "第一作者（1/6）。主导系统建模、仿真环境、算法训练、对比评测与学术写作。",
+      "contributionEn": "First author, listed first among six authors. I led system modeling, simulation development, algorithm training, comparative evaluation and paper writing.",
+      "conditionsZh": "比较结论对应论文规定的多用户 RIS–MEC 仿真与时延、算力和功率约束设置。",
+      "conditionsEn": "The comparisons use the paper’s multi-user RIS–MEC simulations under latency, computing and power constraints.",
+      "shortResultZh": "论文仿真：安全卸载容量与能耗表现优于 MADDPG、单智能体 DDPG 等基线。",
+      "shortResultEn": "Reported simulations improve secure offloading and energy performance over MADDPG and single-agent DDPG baselines.",
+      "journalMetrics": {
+        "quartile": "Q1",
+        "impactFactor": 8.4,
+        "year": 2025,
+        "releaseYear": 2026,
+        "category": "Telecommunications",
+        "sourceUrl": "https://open.ieee.org/wp-content/uploads/IEEE-Title-List-September-2026.pdf",
+        "sourceLabel": "IEEE Title List, September 2026"
+      }
     },
     {
       "id": "P02",
@@ -27,7 +48,19 @@ window.PORTFOLIO_CONTENT = {
       "summaryZh": "以多轮健康对话语料和 ChatGLM-6B 微调，研究医疗对话模型在信息不足时主动追问、再给出建议的能力。",
       "summaryEn": "Multi-turn health conversations and ChatGLM-6B fine-tuning support a health language model that asks follow-up questions before offering suggestions when information is incomplete.",
       "url": "https://arxiv.org/abs/2310.15896",
-      "bibtex": "@misc{chen2023bianque,\n  author = {Chen, Yirong and Wang, Zhenyu and Zheng, Huimin and Xing, Xiaofen and Xu, Zhipei and Fang, Kai and Li, Sihang and Wang, Junhong and Wu, Jieling and Liu, Qi and Xu, Xiangmin},\n  title = {{BianQue}: Balancing the Questioning and Suggestion Ability of Health {LLMs} with Multi-turn Health Conversations Polished by {ChatGPT}},\n  year = {2023},\n  howpublished = {\\textit{arXiv:2310.15896}},\n  eprint = {2310.15896},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2310.15896}\n}"
+      "bibtex": "@misc{chen2023bianque,\n  author = {Chen, Yirong and Wang, Zhenyu and Zheng, Huimin and Xing, Xiaofen and Xu, Zhipei and Fang, Kai and Li, Sihang and Wang, Junhong and Wu, Jieling and Liu, Qi and Xu, Xiangmin},\n  title = {{BianQue}: Balancing the Questioning and Suggestion Ability of Health {LLMs} with Multi-turn Health Conversations Polished by {ChatGPT}},\n  year = {2023},\n  howpublished = {\\textit{arXiv:2310.15896}},\n  eprint = {2310.15896},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2310.15896}\n}",
+      "problemZh": "医疗对话模型在信息不足时容易过早给出建议，缺少连续追问来补齐病情信息的能力。BianQue 研究如何在多轮健康对话中兼顾主动提问与建议生成。",
+      "problemEn": "Health dialogue models can offer advice before collecting enough information. BianQue studies how multi-turn conversations can balance follow-up questioning with suggestion generation.",
+      "methodZh": "团队构建包含 2,437,190 条样本的 BianQueCorpus，清洗低质量与隐私内容，并用 ChatGPT 润色医生建议。基于 ChatGLM-6B 开展全参数监督微调，以医患角色组织多轮历史，同时学习追问和建议回复，形成 Chain of Questioning 能力。",
+      "methodEn": "The team built BianQueCorpus with 2,437,190 samples, filtering low-quality and private content and polishing advice with ChatGPT. Full-parameter ChatGLM-6B fine-tuning uses patient–doctor histories with both questioning and advice targets.",
+      "resultsZh": "团队在 4 个多轮医疗数据集上进行评测。在 IMCS-V2 上，相较 ChatGLM-6B，BianQue 的主动提问指标 PQA 从 0.36 提升至 0.70，ROUGE-L 从 7.26 提升至 19.09。",
+      "resultsEn": "The team evaluated BianQue on four multi-turn medical datasets. On IMCS-V2, PQA increased from 0.36 to 0.70 and ROUGE-L from 7.26 to 19.09 compared with ChatGLM-6B.",
+      "contributionZh": "共同作者（6/11），承担数据工程，并参与团队模型微调与评测。本人处理 1,400 万余条原始医疗对话，最终 BianQueCorpus 规模与模型指标为团队成果。",
+      "contributionEn": "Co-author, listed sixth among eleven authors, responsible for data engineering and participation in fine-tuning and evaluation. I processed over 14 million raw dialogues; corpus-scale and model results are team outcomes.",
+      "conditionsZh": "上述数值对应论文 IMCS-V2 测试集；完整评测还包括 MedDialog-CN、CHIP-MDCFNPC 与 MedDG。",
+      "conditionsEn": "These scores come from the IMCS-V2 test set. The broader evaluation also covers MedDialog-CN, CHIP-MDCFNPC and MedDG.",
+      "shortResultZh": "IMCS-V2：团队模型 PQA 0.36→0.70、ROUGE-L 7.26→19.09，相对 ChatGLM-6B。",
+      "shortResultEn": "IMCS-V2: team-model PQA 0.36→0.70 and ROUGE-L 7.26→19.09 versus ChatGLM-6B."
     },
     {
       "id": "P03",
@@ -41,7 +74,19 @@ window.PORTFOLIO_CONTENT = {
       "summaryZh": "面向分布式 RIS 多用户网络，结合交替优化、连续凸逼近与 MM 方法，联合求解功率分配和无源波束成形。",
       "summaryEn": "Alternating optimization, successive convex approximation, and MM jointly address power allocation and passive beamforming in distributed RIS multiuser networks.",
       "url": "https://doi.org/10.1109/ICSIP61881.2024.10671553",
-      "bibtex": "@inproceedings{chen2024joint,\n  author = {Chen, Zhen and Jian, Zhenqiu and Fang, Kai},\n  title = {Joint Power Allocation and Passive Beamforming for Distributed {RIS} Multiuser Networks},\n  booktitle = {2024 9th International Conference on Signal and Image Processing (ICSIP)},\n  year = {2024},\n  doi = {10.1109/ICSIP61881.2024.10671553}\n}"
+      "bibtex": "@inproceedings{chen2024joint,\n  author = {Chen, Zhen and Jian, Zhenqiu and Fang, Kai},\n  title = {Joint Power Allocation and Passive Beamforming for Distributed {RIS} Multiuser Networks},\n  booktitle = {2024 9th International Conference on Signal and Image Processing (ICSIP)},\n  year = {2024},\n  doi = {10.1109/ICSIP61881.2024.10671553}\n}",
+      "problemZh": "多个分布式 RIS 协同服务多用户时，发射功率、无源波束成形与通信调度相互耦合，系统和速率最大化问题具有非凸性。研究希望通过可迭代求解的方法协调这些资源。",
+      "problemEn": "Power allocation, passive beamforming and scheduling are coupled when distributed RISs serve multiple users. The study addresses the resulting nonconvex sum-rate maximization problem.",
+      "methodZh": "将联合优化问题拆分为 3 个子问题，通过交替优化逐步更新变量。结合连续凸逼近（SCA）与 MM 方法，处理各子问题中的非凸结构。",
+      "methodEn": "The joint problem is decomposed into three subproblems and solved through alternating updates. Successive convex approximation and MM handle the nonconvex structures within these subproblems.",
+      "resultsZh": "论文仿真显示，联合资源设计相较所列基线获得更优的系统和速率表现。",
+      "resultsEn": "The reported simulations show improved system sum rate relative to the paper's baseline schemes.",
+      "contributionZh": "共同作者（3/3），参与联合优化算法设计与求解工作。",
+      "contributionEn": "Co-author, listed third among three authors. I contributed to the design and solution of the joint optimization algorithm.",
+      "conditionsZh": "结果对应论文的分布式 RIS 多用户仿真场景，比较系统和速率与联合资源设计的表现。",
+      "conditionsEn": "The results concern the paper’s distributed RIS multi-user simulations and compare system sum rate under joint resource design.",
+      "shortResultZh": "论文仿真：三子问题交替优化取得更优系统和速率。",
+      "shortResultEn": "Reported simulations: alternating optimization across three subproblems improves system sum rate."
     },
     {
       "id": "P04",
@@ -55,7 +100,19 @@ window.PORTFOLIO_CONTENT = {
       "summaryZh": "以 LSTM–GCN 预测网络状态，并用 DDPG 选择下一跳，研究配电通信网络在故障下的路由重规划与负载均衡。",
       "summaryEn": "LSTM–GCN state prediction and DDPG next-hop decisions support routing replanning and load balancing under failures in distribution communication networks.",
       "url": "https://doi.org/10.1109/ECIE65947.2025.11086918",
-      "bibtex": "@inproceedings{zhang2025selfhealing,\n  author = {Zhang, Peiming and Fu, Jiajia and Kang, Zhongmiao and Di, Xinyue and Fang, Kai and Tang, Jie},\n  title = {A Spatio-temporal Learning and Reinforcement Approach for Self-Healing in Distribution Communication Networks},\n  booktitle = {2025 5th International Conference on Electronics, Circuits and Information Engineering (ECIE)},\n  year = {2025},\n  doi = {10.1109/ECIE65947.2025.11086918}\n}"
+      "bibtex": "@inproceedings{zhang2025selfhealing,\n  author = {Zhang, Peiming and Fu, Jiajia and Kang, Zhongmiao and Di, Xinyue and Fang, Kai and Tang, Jie},\n  title = {A Spatio-temporal Learning and Reinforcement Approach for Self-Healing in Distribution Communication Networks},\n  booktitle = {2025 5th International Conference on Electronics, Circuits and Information Engineering (ECIE)},\n  year = {2025},\n  doi = {10.1109/ECIE65947.2025.11086918}\n}",
+      "problemZh": "配电通信网络发生节点故障或负载变化时，固定路由难以同时兼顾可达性、时延与负载均衡。研究将网络状态预测接入下一跳决策，以支持故障下的动态重规划。",
+      "problemEn": "Node failures and changing loads make fixed routing inadequate for distribution communication networks. The study connects state prediction to next-hop decisions for dynamic replanning and load balancing.",
+      "methodZh": "构建 LSTM–GCN–DDPG 框架：LSTM 提取流量时间依赖，GCN 建模节点空间关联，DDPG 根据预测状态作路由决策。通过排序式动作映射，将连续策略输出转换为离散下一跳选择。",
+      "methodEn": "LSTM extracts temporal traffic patterns, GCN models spatial node dependencies, and DDPG selects routes from predicted states. A ranking-based mapping converts continuous policy outputs into discrete next-hop choices.",
+      "resultsZh": "在论文仿真中，相较 TD3 等路由基线，LGD 框架获得更高且更稳定的奖励。评测覆盖负载均衡、路径时延、故障节点规避与动态重规划。",
+      "resultsEn": "The reported simulations yield higher and more stable rewards than TD3 and other routing baselines. Evaluation covers load balancing, path delay, fault avoidance and dynamic replanning.",
+      "contributionZh": "共同作者（5/6），参与时空预测与强化学习自愈路由框架研究、动作映射及仿真评测。",
+      "contributionEn": "Co-author, listed fifth among six authors. I participated in spatiotemporal prediction, reinforcement-learning routing, action mapping and simulation evaluation.",
+      "conditionsZh": "比较结论来自论文设置的通信网络故障与路由仿真，评测对象为路由奖励、负载均衡与动态重规划表现。",
+      "conditionsEn": "The comparisons use the paper’s network-failure and routing simulations, evaluating routing rewards, load balancing and dynamic replanning.",
+      "shortResultZh": "论文仿真：相较 TD3 等基线，路由奖励更高且更稳定。",
+      "shortResultEn": "Reported simulations: higher and more stable routing rewards than TD3 and other baselines."
     },
     {
       "id": "P05",
@@ -69,7 +126,29 @@ window.PORTFOLIO_CONTENT = {
       "summaryZh": "将时频图预测与双向强化学习路径解码连接，在稀疏路网中同时考虑行驶距离和未来拥堵代价。",
       "summaryEn": "Spectral-temporal graph prediction informs bidirectional reinforcement-learning path decoding to account for travel distance and future congestion in sparse road networks.",
       "url": "https://doi.org/10.3390/signals7030047",
-      "bibtex": "@article{zhang2026prediction,\n  author = {Zhang, Peiming and Lu, Jiangang and Fu, Jiajia and Di, Xinyue and Fang, Kai and Tang, Jie and Yang, Cui},\n  title = {From Prediction to Planning: A Spectral-Temporal {GNN} and Bi-Directional Decoding {RL} Framework},\n  journal = {Signals},\n  volume = {7},\n  year = {2026},\n  doi = {10.3390/signals7030047}\n}"
+      "bibtex": "@article{zhang2026prediction,\n  author = {Zhang, Peiming and Lu, Jiangang and Fu, Jiajia and Di, Xinyue and Fang, Kai and Tang, Jie and Yang, Cui},\n  title = {From Prediction to Planning: A Spectral-Temporal {GNN} and Bi-Directional Decoding {RL} Framework},\n  journal = {Signals},\n  volume = {7},\n  year = {2026},\n  doi = {10.3390/signals7030047}\n}",
+      "problemZh": "只根据当前交通快照选路，可能忽略车辆到达后出现的拥堵；全局图注意力还需要大量成对节点交互。研究在稀疏路网中连接短期交通预测与路径规划，同时考虑行驶距离和未来拥堵代价。",
+      "problemEn": "Routing from current traffic snapshots can overlook congestion encountered later, while global attention requires many pairwise node interactions. The study connects short-term traffic prediction to planning in sparse road networks.",
+      "methodZh": "以 FFT–GRU 时频双流模块、门控融合和动态图建模预测交通状态。规划侧采用邻接掩码图注意力、启发式与边距离偏置、双向自回归解码，并用 REINFORCE 与 rollout baseline 训练路径策略。",
+      "methodEn": "FFT–GRU branches, gated fusion and dynamic graph modeling predict traffic states. Planning combines adjacency-masked attention, heuristic and distance biases, and bidirectional decoding trained with REINFORCE and a rollout baseline.",
+      "resultsZh": "PeMS04、PeMS08 的预测 MAE 分别为 18.211、13.587。受控规划仿真中，相较 A*，实际路径成本从 9.560 降至 9.431，拥堵节点占比从 8.18% 降至 7.43%；编码器成对注意力交互数量减少 65.97%。",
+      "resultsEn": "Prediction MAE was 18.211 on PeMS04 and 13.587 on PeMS08. Controlled planning tests reduced realized cost from 9.560 to 9.431 versus A*. Congestion-node share fell from 8.18% to 7.43%, and pairwise attention interactions decreased by 65.97%.",
+      "contributionZh": "技术负责人；论文共同作者（5/7）。参与研究构思、方法设计、软件实现、验证、论文写作与可视化。",
+      "contributionEn": "Technical lead and co-author, listed fifth among seven authors. I contributed to research conception, method design, software, validation, writing and visualization.",
+      "conditionsZh": "规划对比使用 237 节点、280 条边、24 组起终点与 24 个决策周期。A* 使用当前快照，本文框架使用预测代价，均按实际模拟流量计算执行成本；65.97% 衡量注意力交互数量。",
+      "conditionsEn": "Planning tests used 237 nodes, 280 edges, 24 origin–destination pairs and 24 decision periods. A* used current snapshots, while the framework used forecast costs; evaluation used realized simulated traffic. The 65.97% reduction measures attention interactions.",
+      "shortResultZh": "受控仿真对比 A*：路径成本 9.560→9.431，拥堵节点占比 8.18%→7.43%。",
+      "shortResultEn": "Controlled simulation versus A*: path cost 9.560→9.431; congestion-node share 8.18%→7.43%.",
+      "journalMetrics": {
+        "quartile": "Q2",
+        "impactFactor": 2.9,
+        "year": 2025,
+        "releaseYear": 2026,
+        "category": "Engineering, Electrical and Electronic",
+        "sourceUrl": "https://www.mdpi.com/journal/signals/imprint",
+        "quartileSourceUrl": "https://www.mdpi.com/journal/signals",
+        "sourceLabel": "MDPI Signals official journal metrics"
+      }
     },
     {
       "id": "P06",
@@ -83,7 +162,28 @@ window.PORTFOLIO_CONTENT = {
       "summaryZh": "融合 GATv2 动态拓扑表示与三通道轨迹编码，以 PPO 和两阶段奖励塑形学习无人机群的动态下一跳路由。",
       "summaryEn": "GATv2 topology representations and three-channel trajectory encoding combine with PPO and two-stage reward shaping to learn dynamic next-hop routing for UAV swarms.",
       "url": "",
-      "bibtex": ""
+      "bibtex": "",
+      "problemZh": "高速移动的无人机群使邻接关系持续变化，单看当前链路状态容易忽略运动趋势与历史转发依赖。GTR 研究如何综合拓扑、轨迹和队列信息，学习动态多跳通信中的下一跳策略。",
+      "problemEn": "UAV mobility continually changes network adjacency, and current link states alone can miss motion trends and forwarding history. GTR learns next-hop policies from topology, trajectory and queue information.",
+      "methodZh": "将路由建模为 MDP，以 GATv2 感知动态拓扑，用三通道轨迹编码器融合节点运动、拓扑角色与历史转发依赖。采用 PPO 与两阶段奖励塑形，结合逐跳和终局奖励处理稀疏反馈及长路径信用分配。",
+      "methodEn": "GTR models routing as an MDP, using GATv2 and a three-channel trajectory encoder to represent topology, movement and forwarding history. PPO with two-stage reward shaping combines per-hop and terminal feedback.",
+      "resultsZh": "在 UavNetSim-v1 中，20 节点训练的策略完成了 30—60 节点迁移评测。论文对照条件下，分组投递率、吞吐量、端到端时延与通信能耗优于代表性 AI 路由基线；图示训练曲线约 100 回合后 PDR 稳定至约 82%。",
+      "resultsEn": "A policy trained with 20 nodes was evaluated at network sizes from 30 to 60 nodes in UavNetSim-v1. Reported comparisons improve delivery, throughput, delay and communication energy against representative AI routing baselines. Training-curve PDR stabilizes near 82% after approximately 100 episodes.",
+      "contributionZh": "第一作者（1/7）、算法负责人，主导图与轨迹表示、PPO 策略及仿真消融和跨场景验证。",
+      "contributionEn": "First author, listed first among seven authors, and algorithm lead. I led graph and trajectory representations, PPO policy design, ablations and cross-scenario evaluation.",
+      "conditionsZh": "评测基于 UavNetSim-v1，网络规模覆盖 20—60 节点，速度覆盖 10—50 m/s。约 82% 为所示训练条件下的 PDR，通信能耗统计收发与重传过程。",
+      "conditionsEn": "UavNetSim-v1 tests cover 20–60 nodes and speeds of 10–50 m/s. The approximately 82% PDR describes the plotted training conditions; communication energy covers transmission, reception and retransmission.",
+      "shortResultZh": "UavNetSim-v1：20 节点训练策略迁移评测至 30—60 节点，并完成基线与消融对比。",
+      "shortResultEn": "UavNetSim-v1: a 20-node training policy evaluated at 30–60 nodes, with baseline and ablation comparisons.",
+      "journalMetrics": {
+        "quartile": "Q1",
+        "impactFactor": 7.5,
+        "year": 2025,
+        "releaseYear": 2026,
+        "category": "Telecommunications",
+        "sourceUrl": "https://open.ieee.org/wp-content/uploads/IEEE-Title-List-September-2026.pdf",
+        "sourceLabel": "IEEE Title List, September 2026"
+      }
     },
     {
       "id": "P07",
@@ -97,7 +197,19 @@ window.PORTFOLIO_CONTENT = {
       "summaryZh": "结合三态信任推断、PPO 路由和信誉加权联邦聚合，研究无人机多跳网络在恶意丢包与合谋评分下的可信通信。",
       "summaryEn": "Three-state trust inference, PPO routing, and reputation-weighted federated aggregation address secure UAV multi-hop communication under malicious packet dropping and collusive ratings.",
       "url": "",
-      "bibtex": ""
+      "bibtex": "",
+      "problemZh": "无人机多跳网络除拓扑变化与拥塞外，还面临恶意丢包、On-Off 攻击和合谋评分。TRI-FRL 研究在局部观测下识别不可信节点，并协调分布式路由学习。",
+      "problemEn": "UAV multi-hop networks face malicious dropping, On-Off attacks and collusive ratings alongside mobility and congestion. TRI-FRL studies trustworthy routing and distributed policy learning under partial observability.",
+      "methodZh": "将问题建模为 POMDP，利用 ACK 统计、正常行为基线、异常后验与信誉分歧，形成正常／灰区／黑名单三态信任推断。PPO 对候选下一跳评分，联邦层按威胁变化或超时同步，以样本量和信誉加权聚合，并剔除黑名单节点权重。",
+      "methodEn": "A POMDP formulation combines ACK statistics, behavioral baselines and reputation disagreement in a three-state trust model. PPO scores candidate next hops. Threat- or timeout-triggered federation aggregates policies by sample count and reputation, assigning zero weight to blacklisted nodes.",
+      "resultsZh": "在恶意节点占比 10%—40% 的工况中，相对去信任层消融基线 FRL w/o Trust，平均吞吐量提高 60.67%，平均端到端时延降低 32.35%。平均 PDR 提高 5.64%，平均恶意节点暴露率降低 60.64%。",
+      "resultsEn": "Across conditions with 10%–40% malicious nodes, average throughput increases by 60.67% and end-to-end delay decreases by 32.35% versus FRL w/o Trust. Average PDR improves by 5.64%, while malicious-node exposure decreases by 60.64%.",
+      "contributionZh": "第一作者（1/6），围绕抗合谋信任推断、策略训练和仿真对比开展研究。",
+      "contributionEn": "First author, listed first among six authors, working on collusion-resilient trust inference, policy training and comparative simulation.",
+      "conditionsZh": "UavNetSim-v1 中使用 30 架无人机、600×600×100 m 区域与 5 个随机种子。每节点生成 5 包/s 的 Poisson 流量、负载 1024 字节，单次仿真 30 秒；上述提升为攻击工况相对 FRL w/o Trust 的平均值。",
+      "conditionsEn": "Tests use 30 UAVs in a 600×600×100 m region with five random seeds. Each node generates 5 packets/s of 1024-byte Poisson traffic during 30-second simulations. Improvements are averages over attack conditions relative to FRL w/o Trust.",
+      "shortResultZh": "30 节点、5 种子、10%—40% 恶意占比：吞吐量 +60.67%、时延 −32.35%，相对 FRL w/o Trust。",
+      "shortResultEn": "30 nodes, five seeds, 10%–40% malicious nodes: throughput +60.67% and delay −32.35% versus FRL w/o Trust."
     },
     {
       "id": "P08",
@@ -111,7 +223,19 @@ window.PORTFOLIO_CONTENT = {
       "summaryZh": "以 ICMP 轨迹标定遥测缺失参考率，在两条 10 kV 真实馈线上通过特征消融与多种子压力测试评估缺失气象数据的预测影响。",
       "summaryEn": "ICMP traces calibrate a reference telemetry-missing rate for feature ablations and multi-seed stress tests of weather-data loss in short-term forecasting on two real 10 kV feeders.",
       "url": "",
-      "bibtex": ""
+      "bibtex": "",
+      "problemZh": "馈线负荷预测通常假定发布预测时，气象遥测已完整到达控制中心，但通信丢失会改变外部输入的可用性。研究评估通信质量如何影响 10 kV 配网短期负荷预测，并寻找可靠的缺失数据回退策略。",
+      "problemEn": "Feeder forecasting often assumes weather telemetry is available when predictions are issued, although communication losses change input availability. The study evaluates this coupling and compares missing-data fallback strategies.",
+      "methodZh": "以 11,541,017 条 ICMP 记录标定 9.5347% 的参考遥测不可用率，并将预测模型与遥测可用性层分离。在医院和学校两条真实馈线上，对比 persistence、岭回归、随机森林、LightGBM、LSTM，开展特征消融及 5 档天气丢失率、30 种子的压力测试。",
+      "methodEn": "A separate telemetry-availability layer uses 11,541,017 ICMP records to calibrate a 9.5347% reference unavailability rate. Feature ablations and 30-seed stress tests compare persistence, ridge regression, random forests, LightGBM and LSTM across five weather-loss levels.",
+      "resultsZh": "医院馈线完全气象缺失时，前一天天气策略将 LightGBM 的 MAPE 从原生缺失处理的 12.004% 降至 8.867%。在 9.5347% 参考丢失率下，对应 MAPE 为 8.804%→8.440%；全特征单模型测试中，医院与学校最优 MAPE 分别为 7.63% 和 19.64%。",
+      "resultsEn": "With complete weather loss on the hospital feeder, previous-day weather lowers LightGBM MAPE from 12.004% to 8.867% compared with native missing-value handling. At 9.5347% loss, MAPE falls from 8.804% to 8.440%. Best full-feature model MAPE is 7.63% for the hospital and 19.64% for the school feeder.",
+      "contributionZh": "本人独立完成研究；论文署名为第 4/6 作者、通讯作者。",
+      "contributionEn": "I independently completed the research and am listed as the fourth of six authors and corresponding author.",
+      "conditionsZh": "2018 年馈线记录用于定义预测任务，2023 年通信轨迹用于标定缺失参考率，二者按不同用途使用。结果来自两条馈线与 30 种子缺失压力测试；气象观测按 perfect-prognosis 上界使用。",
+      "conditionsEn": "The 2018 feeder records define the forecasting task, while the 2023 ICMP traces calibrate a reference unavailability rate. Tests cover two feeders and 30 random seeds, using observed weather as a perfect-prognosis upper bound.",
+      "shortResultZh": "医院馈线完全气象缺失：MAPE 12.004%→8.867%，前一天天气策略对比原生缺失处理。",
+      "shortResultEn": "Hospital feeder with complete weather loss: MAPE 12.004%→8.867% using previous-day weather versus native missing-value handling."
     }
   ]
 };
