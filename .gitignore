@@ -1,0 +1,9 @@
+.DS_Store
+*.log
+node_modules/
+.sites-runtime/
+.sites-checkout/
+.openai/
+notes/
+.env
+.env.*

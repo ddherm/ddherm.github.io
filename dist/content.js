@@ -1,0 +1,117 @@
+/* Public portfolio data. Source and publication-status notes: ../notes/content-audit.md. */
+window.PORTFOLIO_CONTENT = {
+  "papers": [
+    {
+      "id": "P01",
+      "year": 2025,
+      "venue": "IEEE Transactions on Communications",
+      "status": "published",
+      "title": "Security Enhancement for RIS-Aided MEC Systems With Deep Reinforcement Learning",
+      "authors": "Kai Fang; Yuxuan Ouyang; Beixiong Zheng; Lei Huang; Gang Wang; Zhen Chen",
+      "roleZh": "第一作者 · 1/6",
+      "roleEn": "First author · 1/6",
+      "summaryZh": "面向 RIS 辅助边缘计算中的安全卸载与能耗权衡，采用多智能体 TD3 联合优化任务分割、通信资源和 RIS 相移。",
+      "summaryEn": "A multi-agent TD3 framework jointly optimizes task partitioning, communication resources, and RIS phases to balance secure offloading and energy use in mobile edge computing.",
+      "url": "https://doi.org/10.1109/TCOMM.2024.3476139",
+      "bibtex": "@article{fang2025security,\n  author = {Fang, Kai and Ouyang, Yuxuan and Zheng, Beixiong and Huang, Lei and Wang, Gang and Chen, Zhen},\n  title = {Security Enhancement for {RIS}-Aided {MEC} Systems With Deep Reinforcement Learning},\n  journal = {IEEE Transactions on Communications},\n  volume = {73},\n  number = {4},\n  year = {2025},\n  doi = {10.1109/TCOMM.2024.3476139}\n}"
+    },
+    {
+      "id": "P02",
+      "year": 2023,
+      "venue": "BianQue · arXiv",
+      "status": "published",
+      "title": "BianQue: Balancing the Questioning and Suggestion Ability of Health LLMs with Multi-turn Health Conversations Polished by ChatGPT",
+      "authors": "Yirong Chen; Zhenyu Wang; Huimin Zheng; Xiaofen Xing; Zhipei Xu; Kai Fang; Sihang Li; Junhong Wang; Jieling Wu; Qi Liu; Xiangmin Xu",
+      "roleZh": "共同作者 · 6/11",
+      "roleEn": "Co-author · 6/11",
+      "summaryZh": "以多轮健康对话语料和 ChatGLM-6B 微调，研究医疗对话模型在信息不足时主动追问、再给出建议的能力。",
+      "summaryEn": "Multi-turn health conversations and ChatGLM-6B fine-tuning support a health language model that asks follow-up questions before offering suggestions when information is incomplete.",
+      "url": "https://arxiv.org/abs/2310.15896",
+      "bibtex": "@misc{chen2023bianque,\n  author = {Chen, Yirong and Wang, Zhenyu and Zheng, Huimin and Xing, Xiaofen and Xu, Zhipei and Fang, Kai and Li, Sihang and Wang, Junhong and Wu, Jieling and Liu, Qi and Xu, Xiangmin},\n  title = {{BianQue}: Balancing the Questioning and Suggestion Ability of Health {LLMs} with Multi-turn Health Conversations Polished by {ChatGPT}},\n  year = {2023},\n  howpublished = {\\textit{arXiv:2310.15896}},\n  eprint = {2310.15896},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2310.15896}\n}"
+    },
+    {
+      "id": "P03",
+      "year": 2024,
+      "venue": "ICSIP 2024",
+      "status": "published",
+      "title": "Joint Power Allocation and Passive Beamforming for Distributed RIS Multiuser Networks",
+      "authors": "Zhen Chen; Zhenqiu Jian; Kai Fang",
+      "roleZh": "共同作者 · 3/3",
+      "roleEn": "Co-author · 3/3",
+      "summaryZh": "面向分布式 RIS 多用户网络，结合交替优化、连续凸逼近与 MM 方法，联合求解功率分配和无源波束成形。",
+      "summaryEn": "Alternating optimization, successive convex approximation, and MM jointly address power allocation and passive beamforming in distributed RIS multiuser networks.",
+      "url": "https://doi.org/10.1109/ICSIP61881.2024.10671553",
+      "bibtex": "@inproceedings{chen2024joint,\n  author = {Chen, Zhen and Jian, Zhenqiu and Fang, Kai},\n  title = {Joint Power Allocation and Passive Beamforming for Distributed {RIS} Multiuser Networks},\n  booktitle = {2024 9th International Conference on Signal and Image Processing (ICSIP)},\n  year = {2024},\n  doi = {10.1109/ICSIP61881.2024.10671553}\n}"
+    },
+    {
+      "id": "P04",
+      "year": 2025,
+      "venue": "ECIE 2025",
+      "status": "published",
+      "title": "A Spatio-temporal Learning and Reinforcement Approach for Self-Healing in Distribution Communication Networks",
+      "authors": "Peiming Zhang; Jiajia Fu; Zhongmiao Kang; Xinyue Di; Kai Fang; Jie Tang",
+      "roleZh": "共同作者 · 5/6",
+      "roleEn": "Co-author · 5/6",
+      "summaryZh": "以 LSTM–GCN 预测网络状态，并用 DDPG 选择下一跳，研究配电通信网络在故障下的路由重规划与负载均衡。",
+      "summaryEn": "LSTM–GCN state prediction and DDPG next-hop decisions support routing replanning and load balancing under failures in distribution communication networks.",
+      "url": "https://doi.org/10.1109/ECIE65947.2025.11086918",
+      "bibtex": "@inproceedings{zhang2025selfhealing,\n  author = {Zhang, Peiming and Fu, Jiajia and Kang, Zhongmiao and Di, Xinyue and Fang, Kai and Tang, Jie},\n  title = {A Spatio-temporal Learning and Reinforcement Approach for Self-Healing in Distribution Communication Networks},\n  booktitle = {2025 5th International Conference on Electronics, Circuits and Information Engineering (ECIE)},\n  year = {2025},\n  doi = {10.1109/ECIE65947.2025.11086918}\n}"
+    },
+    {
+      "id": "P05",
+      "year": 2026,
+      "venue": "Signals",
+      "status": "published",
+      "title": "From Prediction to Planning: A Spectral-Temporal GNN and Bi-Directional Decoding RL Framework",
+      "authors": "Peiming Zhang; Jiangang Lu; Jiajia Fu; Xinyue Di; Kai Fang; Jie Tang; Cui Yang",
+      "roleZh": "共同作者 · 5/7",
+      "roleEn": "Co-author · 5/7",
+      "summaryZh": "将时频图预测与双向强化学习路径解码连接，在稀疏路网中同时考虑行驶距离和未来拥堵代价。",
+      "summaryEn": "Spectral-temporal graph prediction informs bidirectional reinforcement-learning path decoding to account for travel distance and future congestion in sparse road networks.",
+      "url": "https://doi.org/10.3390/signals7030047",
+      "bibtex": "@article{zhang2026prediction,\n  author = {Zhang, Peiming and Lu, Jiangang and Fu, Jiajia and Di, Xinyue and Fang, Kai and Tang, Jie and Yang, Cui},\n  title = {From Prediction to Planning: A Spectral-Temporal {GNN} and Bi-Directional Decoding {RL} Framework},\n  journal = {Signals},\n  volume = {7},\n  year = {2026},\n  doi = {10.3390/signals7030047}\n}"
+    },
+    {
+      "id": "P06",
+      "year": null,
+      "venue": "IEEE Transactions on Vehicular Technology · submitted",
+      "status": "submitted",
+      "title": "GTR: Deep Reinforcement Learning UAV Swarm Routing Algorithm Based on Graph Networks and Trajectories",
+      "authors": "Kai Fang; Zihao Zhou; Xiaokai Song; Jie Tang; Beixiong Zheng; Hyundong Shin; Kai-Kit Wong",
+      "roleZh": "第一作者 · 1/7",
+      "roleEn": "First author · 1/7",
+      "summaryZh": "融合 GATv2 动态拓扑表示与三通道轨迹编码，以 PPO 和两阶段奖励塑形学习无人机群的动态下一跳路由。",
+      "summaryEn": "GATv2 topology representations and three-channel trajectory encoding combine with PPO and two-stage reward shaping to learn dynamic next-hop routing for UAV swarms.",
+      "url": "",
+      "bibtex": ""
+    },
+    {
+      "id": "P07",
+      "year": 2027,
+      "venue": "IEEE VTC 2027 Spring · submitted",
+      "status": "submitted",
+      "title": "Collusion-Resilient Trust Inference and Federated Reinforcement Learning for Secure Multi-Hop Routing in UAV Networks",
+      "authors": "Kai Fang; Zihao Zhou; Xuanhao Mai; Jie Tang; Hyundong Shin; Kai Kit Wong",
+      "roleZh": "第一作者 · 1/6",
+      "roleEn": "First author · 1/6",
+      "summaryZh": "结合三态信任推断、PPO 路由和信誉加权联邦聚合，研究无人机多跳网络在恶意丢包与合谋评分下的可信通信。",
+      "summaryEn": "Three-state trust inference, PPO routing, and reputation-weighted federated aggregation address secure UAV multi-hop communication under malicious packet dropping and collusive ratings.",
+      "url": "",
+      "bibtex": ""
+    },
+    {
+      "id": "P08",
+      "year": 2026,
+      "venue": "EIECC 2026 · accepted",
+      "status": "accepted",
+      "title": "Communication-Aware Short-Term Load Forecasting for 10 kV Distribution Feeders with Missing Weather Telemetry",
+      "authors": "Peiming Zhang; Jiajia Fu; Jian Zhang; Kai Fang; Xiaokai Song; Jie Tang",
+      "roleZh": "共同作者、通讯作者 · 4/6",
+      "roleEn": "Co-author and corresponding author · 4/6",
+      "summaryZh": "以 ICMP 轨迹标定遥测缺失参考率，在两条 10 kV 真实馈线上通过特征消融与多种子压力测试评估缺失气象数据的预测影响。",
+      "summaryEn": "ICMP traces calibrate a reference telemetry-missing rate for feature ablations and multi-seed stress tests of weather-data loss in short-term forecasting on two real 10 kV feeders.",
+      "url": "",
+      "bibtex": ""
+    }
+  ]
+};
