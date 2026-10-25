@@ -63,7 +63,7 @@
     const m=p.journalMetrics;
     if(!m)return escape(name);
     const rating=t('（JCR '+m.quartile+'，IF = '+m.impactFactor+'）',' (JCR '+m.quartile+', IF = '+m.impactFactor+')');
-    return '<strong>'+escape(name)+'</strong><span class="venue-rating">'+escape(rating)+'</span><a class="metric-year" href="'+escape(m.sourceUrl)+'" target="_blank" rel="noopener noreferrer" aria-label="'+escape(t('查看期刊指标官方来源','View official journal metrics'))+'">'+m.year+' JIF</a>';
+    return '<strong>'+escape(name)+'</strong><span class="venue-rating">'+escape(rating)+'</span>';
   }
   function statusLabel(p) {
     return p.id==='P02'?t('预印本','Preprint'):({published:t('已发表','Published'),accepted:t('已录用','Accepted'),submitted:t('在投','Submitted')})[p.status];
@@ -74,10 +74,6 @@
       const value=p[key+(lang==='zh'?'Zh':'En')];
       return value?'<section class="dialog-content-section research-detail"><h3>'+t(zh,en)+'</h3><p>'+escape(value)+'</p></section>':'';
     }).join('');
-  }
-  function journalSource(p) {
-    const m=p.journalMetrics;if(!m)return '';
-    return '<p class="journal-source">'+m.year+' JIF · '+t(m.releaseYear+' 年发布','released in '+m.releaseYear)+' · '+escape(m.category)+'<br>'+external(m.sourceUrl,t('期刊指标来源','Journal metric source'))+(m.quartileSourceUrl?' · '+external(m.quartileSourceUrl,t('JCR 分区来源','JCR quartile source')):'')+'</p>';
   }
 
   function renderPapers() {
@@ -98,7 +94,7 @@
       $('#dialog-content').innerHTML = `<div class="dialog-eyebrow">${p.label}</div><h2 id="dialog-title" class="dialog-title">${p.title}</h2><p class="dialog-summary">${escape(lang === 'zh' ? p.summaryZh : p.summaryEn)}</p><div class="tags">${p.tags.map(s=>`<span>${escape(s)}</span>`).join('')}</div>${p.image ? `<img class="dialog-image" src="${p.image}" alt="${escape(p.title)} ${t('项目界面','project interface')}">` : ''}<div class="dialog-content-section"><h3>${escape(lang === 'zh' ? p.roleZh : p.roleEn)}</h3><ul>${(lang === 'zh' ? p.itemsZh : p.itemsEn).map(s=>`<li>${escape(s)}</li>`).join('')}</ul></div><p class="dialog-notice">${escape(lang === 'zh' ? p.noteZh : p.noteEn)}</p>${p.url ? `<div class="dialog-links">${external(p.url,lang === 'zh' ? p.linkZh : p.linkEn,'button primary')}</div>` : ''}`;
     } else {
       const p = papers.find(p=>p.id === id); if (!p) return;
-      $('#dialog-content').innerHTML = `<div class="dialog-eyebrow">${venueHtml(p)}</div><h2 id="dialog-title" class="dialog-title">${escape(p.title)}</h2><p class="dialog-authors">${escape(p.authors)}</p><div class="dialog-paper-meta"><span class="paper-status ${escape(p.status)}">${statusLabel(p)}</span><span>${escape(lang === 'zh' ? p.roleZh : p.roleEn)}</span></div>${journalSource(p)}<p class="dialog-summary">${escape(lang === 'zh' ? p.summaryZh : p.summaryEn)}</p>${researchBlocks(p)}${p.bibtex ? `<details class="citation-details"><summary>${t('文献引用 · BibTeX','Citation · BibTeX')}</summary><pre class="dialog-citation">${escape(p.bibtex)}</pre></details>` : ''}<div class="dialog-links">${p.url ? external(p.url,t('打开论文原文','Open paper'),'button primary') : ''}${p.bibtex ? `<button class="button" data-copy-cite="${p.id}">${t('复制 BibTeX','Copy BibTeX')}</button>` : ''}</div>`;
+      $('#dialog-content').innerHTML = `<div class="dialog-eyebrow">${venueHtml(p)}</div><h2 id="dialog-title" class="dialog-title">${escape(p.title)}</h2><p class="dialog-authors">${escape(p.authors)}</p><div class="dialog-paper-meta"><span class="paper-status ${escape(p.status)}">${statusLabel(p)}</span><span>${escape(lang === 'zh' ? p.roleZh : p.roleEn)}</span></div><p class="dialog-summary">${escape(lang === 'zh' ? p.summaryZh : p.summaryEn)}</p>${researchBlocks(p)}${p.bibtex ? `<details class="citation-details"><summary>${t('文献引用 · BibTeX','Citation · BibTeX')}</summary><pre class="dialog-citation">${escape(p.bibtex)}</pre></details>` : ''}<div class="dialog-links">${p.url ? external(p.url,t('打开论文原文','Open paper'),'button primary') : ''}${p.bibtex ? `<button class="button" data-copy-cite="${p.id}">${t('复制 BibTeX','Copy BibTeX')}</button>` : ''}</div>`;
     }
   }
   function showDialog(type,id) {

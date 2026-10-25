@@ -11,7 +11,7 @@ const status = { published: '已发表', accepted: '已录用', submitted: '在�
 const fields = [['研究问题','problemZh'],['算法与实现','methodZh'],['实验效果','resultsZh'],['本人工作','contributionZh'],['实验条件','conditionsZh']];
 const fallback = papers.map(p => {
   const m=p.journalMetrics;
-  const venue=escape(p.venue.replace(/\s*· (submitted|accepted)$/, ''))+(m?`<span class="venue-rating">（JCR ${m.quartile}，IF = ${m.impactFactor}）</span><a class="metric-year" href="${escape(m.sourceUrl)}">${m.year} JIF</a>`:'');
+  const venue=escape(p.venue.replace(/\s*· (submitted|accepted)$/, ''))+(m?`<span class="venue-rating">（JCR ${m.quartile}，IF = ${m.impactFactor}）</span>`:'');
   const details=fields.filter(([,key])=>p[key]).map(([label,key])=>`<section class="research-detail"><h4>${label}</h4><p>${escape(p[key])}</p></section>`).join('');
   const year=p.id==='P07'?'目标 2027':(p.year||'进行中');
   return `<article class="paper-row"><div class="paper-date"><span class="paper-year">${year}</span><span class="paper-status ${p.status}">${p.id === 'P02' ? '预印本' : status[p.status]}</span></div><div class="paper-main"><p class="paper-venue">${venue}</p><h3 class="paper-title">${p.url ? `<a href="${escape(p.url)}">${escape(p.title)}</a>` : escape(p.title)}</h3><p class="paper-authors">${escape(p.authors)}</p><p class="paper-description">${escape(p.summaryZh)}</p>${p.shortResultZh?`<p class="paper-highlight"><span>效果</span>${escape(p.shortResultZh)}</p>`:''}<p class="paper-role">${escape(p.roleZh)}</p><details class="citation-details"><summary>研究介绍</summary>${details}</details></div></article>`;
