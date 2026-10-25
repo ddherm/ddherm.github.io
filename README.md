@@ -4,6 +4,8 @@
 
 网站地址：[ddherm.github.io](https://ddherm.github.io/)。
 
+视觉以图学习与无人机通信网络为主题。首页的城市拓扑与多跳路径为交互示意，不是实时仿真结果；可切换拓扑和路由视图。项目采用重点案例与错落布局，论文保留独立的状态筛选与引用下载。
+
 ## 本地预览
 
 在本目录运行：
@@ -21,6 +23,7 @@ python3 -m http.server 4173 --directory dist
 - `scripts/prepare.mjs`：同步生成 BibTeX 下载文件和无 JavaScript 时的完整论文列表。修改论文数据后运行 `node scripts/prepare.mjs`；GitHub Actions 也会自动执行。
 - `dist/index.html`：首页结构和项目介绍的页面文案；调整首页文字时检查对应的中英文版本。
 - `dist/assets/`：项目截图与品牌图标。Movo 截图使用演示项目数据；UavNetSim 截图展示平台界面。
+- `dist/assets/fonts/`：自托管的 Space Grotesk 字体与 OFL 许可证；中文正文采用系统中文字体。
 - `.github/workflows/pages.yml`：将 `dist/` 部署到 GitHub Pages。
 
 更新个人经历或论文状态时，先核对本人确认的事实与对应材料，再同步中英文文案和引用文件。仓库只保存公开网站所需文件。

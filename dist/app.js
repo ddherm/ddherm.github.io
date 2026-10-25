@@ -10,10 +10,10 @@
   let toastTimer;
   const papers = window.PORTFOLIO_CONTENT?.papers ?? [];
   const t = (zh, en) => lang === 'zh' ? zh : en;
-  const external = (url, label, classes = '') => `<a class="${classes}" href="${escape(url)}" target="_blank" rel="noopener noreferrer">${escape(label)} ↗</a>`;
+  const external = (url, label, classes = '') => `<a class="${classes}" href="${escape(url)}" target="_blank" rel="noopener noreferrer">${escape(label)}</a>`;
   const projects = {
     movo: {
-      title: 'Movo', label: 'VOICE-DRIVEN WEB PROTOTYPING', image: './assets/movo-plan.png',
+      title: 'Movo', label: 'Voice-driven web prototyping', image: './assets/movo-plan.png',
       summaryZh: '语音驱动的网页原型开发助手：从一句想法出发，讨论需求、确认方案，再让 Coding Agent 生成可检查的网页原型。',
       summaryEn: 'A voice-driven web prototyping assistant. Discuss an idea, confirm a plan, and let a coding agent generate a web prototype you can inspect.',
       roleZh: '个人开源项目 · 单用户本机 MVP · 2026.09', roleEn: 'Personal open-source project · Single-user local MVP · Sep 2026',
@@ -24,7 +24,7 @@
       tags: ['FastAPI','SQLite','React','OpenHands','Pipecat','Docker'], url: 'https://github.com/ddherm/movo', linkZh: '查看源代码', linkEn: 'View source'
     },
     flash: {
-      title: 'Flash Pocket', label: 'PERSONAL KNOWLEDGE MANAGEMENT',
+      title: 'Flash Pocket', label: 'Personal knowledge management',
       summaryZh: '个人全栈知识管理项目，连接微信 / Web 采集、多格式解析、LLM 摘要与标签、向量入库和语义检索。',
       summaryEn: 'A full-stack personal knowledge system connecting WeChat / web capture, multi-format parsing, LLM summaries and tags, vector storage and semantic search.',
       roleZh: '个人项目 · 全栈开发 · AI 辅助编程 · 已上线', roleEn: 'Personal project · Full-stack development · AI-assisted coding · Launched',
@@ -35,7 +35,7 @@
       tags: ['FastAPI','Next.js','PostgreSQL','pgvector','Celery','Redis'],url:'https://www.flashpocket.cn/',linkZh:'访问 Flash Pocket',linkEn:'Visit Flash Pocket'
     },
     uav: {
-      title:'UavNetSim',label:'UAV NETWORK SIMULATION',image:'./assets/uavnetsim.png',
+      title:'UavNetSim',label:'UAV network simulation',image:'./assets/uavnetsim.png',
       summaryZh:'基于 Python / SimPy 的可扩展无人机通信网络仿真平台，覆盖路由、MAC、物理层、无人机移动与能耗模型。',
       summaryEn:'An extensible Python / SimPy platform for UAV communication networks, covering routing, MAC, physical-layer interactions, mobility and energy models.',
       roleZh:'开源项目主要作者之一 · 强化学习优化与仿真测试',roleEn:'One of the principal open-source authors · RL optimization & simulation testing',
@@ -46,7 +46,7 @@
       tags:['Python','SimPy','Q-learning','PPO','React','OSM2World'],url:'https://github.com/Zihao-Felix-Zhou/UavNetSim',linkZh:'查看开源项目',linkEn:'View source'
     },
     echo: {
-      title:'EchoMind',label:'MULTI-AGENT SUPPORT ORCHESTRATION',
+      title:'EchoMind',label:'Multi-agent support orchestration',
       summaryZh:'面向产品咨询、技术故障与账单咨询的 Agent 项目，通过意图识别与主辅角色协作，结合 RAG、会话记忆和工具调用处理多轮问题。',
       summaryEn:'An agent project for product, technical and billing support. Intent recognition and specialist roles combine RAG, conversation memory and tool calls for multi-turn questions.',
       roleZh:'个人项目 · 本地 Python 后端与 Vue 前端',roleEn:'Personal project · Local Python backend & Vue frontend',
@@ -65,7 +65,7 @@
     filtered.sort((a,b) => order[a.id] - order[b.id]);
     $('#paper-list').innerHTML = filtered.length ? filtered.map(p => {
       const status = p.id === 'P02' ? t('预印本','Preprint') : ({published:t('已发表','Published'),accepted:t('已录用','Accepted'),submitted:t('在投','Submitted')})[p.status];
-      const year = p.id === 'P07' ? t('目标 2027','Target 2027') : (p.year || 'ONGOING');
+      const year = p.id === 'P07' ? t('目标 2027','Target 2027') : (p.year || t('进行中','In progress'));
       return `<article class="paper-row"><div class="paper-date"><span class="paper-year">${escape(year)}</span><span class="paper-status ${escape(p.status)}">${status}</span></div><div class="paper-main"><div class="paper-venue">${escape(p.venue)}</div><h3 class="paper-title"><button data-paper="${escape(p.id)}">${escape(p.title)}</button></h3><p class="paper-authors">${escape(p.authors).replace(/Kai Fang/g,'<strong>Kai Fang</strong>')}</p><p class="paper-description">${escape(lang === 'zh' ? p.summaryZh : p.summaryEn)}</p><div class="paper-actions"><span class="paper-role">${escape(lang === 'zh' ? p.roleZh : p.roleEn)}</span>${p.url ? external(p.url,t('原文','Paper')) : ''}<button data-paper="${escape(p.id)}">${t('研究介绍','Details')}</button>${p.bibtex ? `<button data-cite="${escape(p.id)}">BibTeX</button>` : ''}</div></div><button class="paper-open" data-paper="${escape(p.id)}" aria-label="${escape(t('查看论文介绍：','View publication: ') + p.title)}">↗</button></article>`;
     }).join('') : `<p class="empty-state">${t('没有找到匹配的论文，试试其他关键词。','No matching papers. Try another keyword.')}</p>`;
   }
@@ -98,7 +98,7 @@
   function applyLanguage() {
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
     $$('[data-zh][data-en]').forEach(el => {el.textContent=el.dataset[lang];});
-    $('#language-toggle').innerHTML=lang === 'zh' ? 'EN <span>↗</span>' : '中文 <span>↗</span>';
+    $('#language-toggle').innerHTML=lang === 'zh' ? 'EN' : '中文';
     $('#language-toggle').setAttribute('aria-label',lang === 'zh' ? 'Switch to English' : '切换到中文');
     $('#paper-search').placeholder=t('搜索论文、关键词…','Search papers, keywords…');
     renderPapers();
@@ -113,6 +113,7 @@
   }));
   $$('[data-project-filter]').forEach(button=>button.addEventListener('click',()=>{
     const filter=button.dataset.projectFilter;
+    $('.project-grid').dataset.filter=filter;
     $$('[data-project-filter]').forEach(b=>{const active=b===button;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
     $$('.project-card').forEach(card=>{card.hidden=filter!=='all' && card.dataset.category!==filter;});
   }));
@@ -128,6 +129,10 @@
   $('#copy-email').addEventListener('click',()=>copy('fangkaidd@scut.edu.cn',t('邮箱已复制','Email copied')));
   $('.menu-toggle').addEventListener('click',()=>{const open=$('#navigation').classList.toggle('open');$('.menu-toggle').setAttribute('aria-expanded',String(open));});
   $$('#navigation a').forEach(link=>link.addEventListener('click',()=>{$('#navigation').classList.remove('open');$('.menu-toggle').setAttribute('aria-expanded','false');}));
-  window.addEventListener('resize',()=>{if(window.innerWidth>600){$('#navigation').classList.remove('open');$('.menu-toggle').setAttribute('aria-expanded','false');}});
+  window.addEventListener('resize',()=>{if(window.innerWidth>900){$('#navigation').classList.remove('open');$('.menu-toggle').setAttribute('aria-expanded','false');}});
+  $$('[data-network-view]').forEach(button=>button.addEventListener('click',()=>{
+    $('.network-stage').dataset.view=button.dataset.networkView;
+    $$('[data-network-view]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+  }));
   applyLanguage();
 })();
